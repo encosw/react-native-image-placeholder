@@ -19,6 +19,13 @@ class ImageLoad extends React.Component {
     };
   }
 
+  onLoadStart() {
+      this.setState({
+          isError: false,
+          isLoaded: false
+      })
+  }
+
   onLoadEnd(){
     this.setState({
       isLoaded: true
@@ -41,6 +48,7 @@ class ImageLoad extends React.Component {
       <ImageBackground
         onLoadEnd={this.onLoadEnd.bind(this)}
         onError={this.onError.bind(this)}
+	onLoadStart={this.onLoadStart.bind(this)}
         style={[styles.backgroundImage, style]}
         source={source}
         resizeMode={resizeMode}
